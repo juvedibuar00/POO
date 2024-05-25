@@ -1,27 +1,36 @@
-
 #classe base
 
-class Pessoa:
+class Trouxa:
     def __init__(self, nome, cpf):
         self.nome = nome
         self.__cpf = cpf
-
-    def cumprimentar(self):
-        print(f'Olá ! Tudo bem? Me chamo {self.nome}')
-
-    def setCpf(self, novoCpf):
-        self.__cpf = novoCpf
-
-    def getCpf(self):
-        return self.__cpf 
+    
+    def comprimentar(self):
+        print(f'')
 
 
-# criação classe mãe que herda atributos e métodos da classe Pessoa
 
-class Mae(Pessoa):
-    def __init__(self, nome, cpf, corPele):
+
+class Bruxo():
+    def __init__(self, casa, patrono):
+        self.casa = casa
+        self.patrono = patrono
+
+    def lancarFeitico(self):
+        print('Lançou feitiço')
+
+
+
+class Mestico(Trouxa, Bruxo):
+    def __init__(self, nome, cpf, casa, patrono):
         super().__init__(nome, cpf)
-        self.corPele = corPele
+        Bruxo.__init__(self, casa, patrono)
 
-    def dancar(self):
-        print(f'{self.nome} está dançando')
+mestico1 = Mestico('Luna', '100.000.004-52', 'Grifnolia', 'coelho')
+
+mestico1.lancarFeitico()
+
+
+
+
+   
